@@ -10,7 +10,7 @@ App.use(Express.json());
 App.use(cors());
 
 App.get("/", (req, res) => {
-    res.send("placholder");
+  res.sendFile("index.html", { root: "." });
 });
 
 App.use("/dirtyRead", dirtyRead);

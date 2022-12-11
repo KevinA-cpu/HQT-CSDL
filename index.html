@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=brave" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Demo</title>
+  </head>
+  <body>
+    <div className="dirty-read">
+      <label>Dirty Read</label>
+      <button onclick="location.href='/dirtyread/T1'">T1</button>
+      <button onclick="location.href='/dirtyread/T2/READ_UNCOMMITTED'">
+        T2
+      </button>
+      <button onclick="location.href='/dirtyread/T2/READ_COMMITTED'">
+        T2 Fixed
+      </button>
+    </div>
+  </body>
+</html>

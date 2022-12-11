@@ -140,7 +140,7 @@ CREATE TABLE HopDong
 
 CREATE TABLE ChiTietHopDong
 (
-	MaSoThue NVARCHAR(7),
+	MaSoThue NVARCHAR(13),
 	TenQuan NVARCHAR(30),
 	DiaChiKinhDoanh NVARCHAR(100),
 	SoNamHoatDong INT,
@@ -153,7 +153,7 @@ CREATE TABLE ChiTietHopDong
 
 CREATE TABLE PhiKichHoat
 (
-	MaSoThue NVARCHAR(7),
+	MaSoThue NVARCHAR(13),
 	TenDoiTac NVARCHAR(30),
 	SoTien MONEY
 

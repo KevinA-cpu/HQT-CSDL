@@ -249,7 +249,37 @@ ADD CONSTRAINT FK_ThucDon_DoiTac FOREIGN KEY (TenQuan, DiaChiKinhDoanh) REFERENC
 ALTER TABLE ThucDon
 ADD CONSTRAINT FK_ThucDon_MonAn FOREIGN KEY (MonAn) REFERENCES MonAn(TenMon)
 
---INSERT dữ liệu để demo lỗi
+-- Table DoiTac -- 
+INSERT INTO DoiTac
+VALUES(N'Phan Dương Quốc Đạt', N'05 Lý Tự Trọng, quận 1, thành phố Hồ Chí Minh', '068201020526', '0396205226', 'datphan05@gmail.com', 1, N'Hồ Chí Minh', '1', '', 500, N'Đồ ăn Hàn Quốc', '1631591406', N'Dat Phan Tastique', N'26 Hàm Nghi, quận 1, thành phố Hồ Chí Minh')
+INSERT INTO DoiTac
+VALUES(N'Dương Thanh Hà', N'17 Nguyễn Chí Thanh, quận 3, thành phố Hồ Chí Minh', '035176298423', '0983654265', 'thanhha@gmail.com', 1, N'Hồ Chí Minh', '1', '', 450, N'Đồ ăn Huế', '0468321572', N'Ẩm thực xứ Huế', N'28 Hàm Nghi, quận 1, thành phố Hồ Chí Minh')
+INSERT INTO DoiTac
+VALUES(N'Hòang Mạnh Cường', N'26 Lê Lợi, quận 7, thành phố Hồ Chí Minh', '068243543517', '0315478632', 'cuongmanh09@gmail.com', 1, N'Hồ Chí Minh', '7', '', 400, N'Đồ ăn vặt', '0365198732', N'Bếp của Cường', N'26 Lê Lợi, quận 7, thành phố Hồ Chí Minh')
+
+-- Table TaiXe --
+INSERT INTO TaiXe
+VALUES
+	(N'Lương Văn Ánh', N'235 Hoàng Hữu Nam, quận 7, thành phố Hồ Chí Minh', '068235419561', '0354126841', '79K11367', N'Quận 7, thành phố Hồ Chí Minh', 'anhluong123@gmail.com', '16587413552', '1500000', 'TX000001')
+INSERT INTO TaiXe
+VALUES
+	(N'Trần Đức Bảo', N'86 Lê Văn Việt, quận Bình Thạnh, thành phố Hồ Chí Minh', '068265413978', '0357545332', '60AA65132', N'Quận 1, thành phố Hồ Chí Minh', 'bao2938@gmail.com', '13461354896', '1500000', 'TX000002')
+INSERT INTO TaiXe
+VALUES
+	(N'Lê Trung Kiên', N'65 Võ Văn Ngân, quận Tân Bình, thành phố Hồ Chí Minh', '068265138473', '0431798654', '60A163219', N'Quận 1, thành phố Hồ Chí Minh', 'trungkien98@gmail.com', '652135847632', '1500000', 'TX000003')
+
+-- Table KhachHang --
+INSERT INTO KhachHang
+VALUES
+	(N'Nguyễn Ngọc Ánh', N'Quận 7, thành phố Hồ Chí Minh', '068232146857', '0785412963', 'anhngoc74@gmail.com', 'KH000001')
+INSERT INTO KhachHang
+VALUES
+	(N'Nguyễn Khắc Dương', N'Quận 9, thành phố Hồ Chí Minh', '068265423873', '0182738264', 'khacduong36@gmail.com', 'KH000002')
+INSERT INTO KhachHang
+VALUES
+	(N'Trần Thanh Sang', N'Quận 3, thành phố Hồ Chí Minh', '068248392019', '0382947162', 'thanhsang73@gmail.com', 'KH000003')
+
+-- Table MonAn --
 INSERT INTO MonAn
 VALUES
 	(N'Cơm cuộn Kimbap', 5265, 4632, 261, '60000', N'có bán')
@@ -259,3 +289,100 @@ VALUES
 INSERT INTO MonAn
 VALUES
 	(N'Bánh tráng trộn', 3651, 1653, 132, '30000', N'có bán')
+
+-- Table TuyChonMonAn --
+INSERT INTO TuyChonMonAn
+VALUES
+	(N'Cơm cuộn Kimbap', N'Ít cơm, thêm cà rốt, giá và 1 trứng ốp la')
+INSERT INTO TuyChonMonAn
+VALUES
+	(N'Cơm hến', N'Nhiều hến ít cơm, double đậu phộng')
+INSERT INTO TuyChonMonAn
+VALUES
+	(N'Bánh tráng trộn', N'Bánh tráng bóp mềm, thêm hành phi và 3 trứng cút')
+
+-- Table HopDong --
+INSERT INTO HopDong
+VALUES
+	('11111', 1, N'26 Hàm Nghi, quận 1, thành phố Hồ Chí Minh', '1631591406', N'Vietcombank', N'Quận 1')
+INSERT INTO HopDong
+VALUES
+	('11112', 1, N'28 Hàm Nghi, quận 1, thành phố Hồ Chí Minh', '0468321572', N'Vietcombank', N'Quận 1')
+INSERT INTO HopDong
+VALUES
+	('11113', 1, N'26 Lê Lợi, quận 7, thành phố Hồ Chí Minh', '0365198732', N'ACB', N'Quận 7')
+
+delete from HopDong where MaSoThue = N'123456'
+ALTER TABLE HopDong
+alter column NganHang nvarchar(25);
+
+--Table ChiTietHopDong --
+INSERT INTO ChiTietHopDong
+VALUES
+	('11111', N'Ẩm thực xứ Huế', N'28 Hàm Nghi, quận 1, thành phố Hồ Chí Minh', 1, N'Hoạt động', '10-10-2020', 300000)
+INSERT INTO ChiTietHopDong
+VALUES
+	('11112', N'Bếp của Cường', N'26 Lê Lợi, quận 7, thành phố Hồ Chí Minh', 2, N'Hoạt động', '11-10-2021', 400000)
+INSERT INTO ChiTietHopDong
+VALUES
+	('11113', N'Dat Phan Tastique', N'26 Hàm Nghi, quận 1, thành phố Hồ Chí Minh', 3, N'Hoạt động', '12-10-2022', 500000)
+
+-- Table DonDatHang --
+INSERT INTO DonDatHang
+VALUES
+	('123', 120000, N'Chờ nhận', 'KH000001', 'TX000001', N'Dat Phan Tastique', N'26 Hàm Nghi, quận 1, thành phố Hồ Chí Minh', N'Cơm cuộn Kimbap', 2)
+INSERT INTO DonDatHang
+VALUES
+	('124', 55000, N'Chờ nhận', 'KH000002', 'TX000002', N'Ẩm thực xứ Huế', N'28 Hàm Nghi, quận 1, thành phố Hồ Chí Minh', N'Cơm hến', 1)
+INSERT INTO DonDatHang
+VALUES
+	('125', 90000, N'Chờ nhận', 'KH000003', 'TX000003', N'Bếp của Cường', N'26 Lê Lợi, quận 7, thành phố Hồ Chí Minh', N'Bánh tráng trộn', 3)
+
+--Table Feedback --
+INSERT INTO Feedback
+VALUES
+	('KH000001', N'Dat Phan Tastique', N'26 Hàm Nghi, quận 1, thành phố Hồ Chí Minh', N'Ngon và rẻ')
+INSERT INTO Feedback
+VALUES
+	('KH000003', N'Ẩm thực xứ Huế', N'28 Hàm Nghi, quận 1, thành phố Hồ Chí Minh', N'Ổn với giá tiền')
+INSERT INTO Feedback
+VALUES
+	('KH000003', N'Bếp của Cường', N'26 Lê Lợi, quận 7, thành phố Hồ Chí Minh', N'Đồ ăn nguội')
+
+--Table PhiKichHoat --
+INSERT INTO PhiKichHoat
+VALUES
+	('11111', N'Dat Phan Tastique', 1000000)
+INSERT INTO PhiKichHoat
+VALUES
+	('11112', N'Ẩm thực xứ Huế', 1000000)
+INSERT INTO PhiKichHoat
+VALUES
+	('11113', N'Bếp của Cường', 1000000)
+
+--Table HoaHong --
+INSERT INTO HoaHong
+VALUES
+	('123', N'Dat Phan Tastique', N'26 Hàm Nghi, quận 1, thành phố Hồ Chí Minh', 300000)
+INSERT INTO HoaHong
+VALUES
+	('124', N'Ẩm thực xứ Huế', N'28 Hàm Nghi, quận 1, thành phố Hồ Chí Minh', 400000)
+INSERT INTO HoaHong
+VALUES
+	('125', N'Bếp của Cường', N'26 Lê Lợi, quận 7, thành phố Hồ Chí Minh', 500000)
+
+insert into QuanTri
+values
+	(N'Nguyễn Văn A', N'Thành phố Hồ Chí Minh', '236514598763', '0356874215')
+
+-- Table ThucDon --
+INSERT INTO ThucDon
+VALUES
+	(N'Dat Phan Tastique', N'26 Hàm Nghi, quận 1, thành phố Hồ Chí Minh', N'Cơm cuộn Kimbap')
+INSERT INTO ThucDon
+VALUES
+	(N'Ẩm thực xứ Huế', N'28 Hàm Nghi, quận 1, thành phố Hồ Chí Minh', N'Cơm hến')
+INSERT INTO ThucDon
+VALUES
+	(N'Bếp của Cường', N'26 Lê Lợi, quận 7, thành phố Hồ Chí Minh', N'Bánh tráng trộn')
+

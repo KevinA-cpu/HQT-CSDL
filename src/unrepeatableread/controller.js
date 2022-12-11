@@ -24,9 +24,9 @@ const T1 = async (req, res) => {
     try {
         let pool = await sql.connect(config);
         let transaction = new sql.Transaction(pool);
-        let isolationlevel = sql.ISOLATION_LEVEL.REPEATABLE_READ
+        //let isolationlevel = sql.ISOLATION_LEVEL.REPEATABLE_READ
         try {
-            await transaction.begin(isolationlevel);
+            await transaction.begin();
             await transaction.request().query(queries.getDonDatHang);
             await transaction.request().query(queries.delay);
             let data2 = await transaction.request().query(queries.getDonDatHang);
@@ -35,9 +35,7 @@ const T1 = async (req, res) => {
         } catch (error) {
         await transaction.rollback();
         throw error;
-        } finally {
-        await pool.close();
-        }
+        } 
     } catch (error) {
         throw error;
     }
@@ -61,8 +59,6 @@ const T3 = async (req, res) => {
             } catch (error) {
             await transaction.rollback();
             throw error;
-            } finally {
-            await pool.close();
             }
         } 
         catch (error) {
@@ -84,8 +80,6 @@ const T2 = async (req, res) => {
         } catch (error) {
         await transaction.rollback();
         throw error;
-        } finally {
-        await pool.close();
         }
     } catch (error) {
         throw error;
